@@ -1,0 +1,66 @@
+﻿@model PatrahSave.Models.Member
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class=" form-group row">
+            <h1>
+                Add Member
+            </h1 class = "text-black 50 pl-3">
+        </div>
+        <div class=" row">
+            <div class=" col-12">
+                <div class=" form-group row">
+                    <div>
+                        <label asp-for="MemberId">
+
+                        </label>
+                    </div>
+                    <div class=" col-4">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class=" col-4 row">
+                        <label asp-for="YearOfBirth"></label>
+                    </div>
+
+                    <div class=" col-4 row">
+                        <label asp-for="Age"></label>
+                    </div>
+                    <div class=" col-4 row">
+                        <label asp-for="PlaceOfResidence"></label>
+                    </div>
+
+                </div>
+
+                <div class=" col-4">
+                    <input asp-for="MemberId"  class="form-control" />
+                </div>
+                <div class="col-4 ">
+                    <input asp-for="Name" class="form-control" />
+
+                </div>
+                <div class=" col-4">
+                    <input asp-for="YearOfBirth" class="form-control" />
+
+                </div>
+                <div class=" col-4">
+                    <input asp-for="Age" class="form-control" />
+
+                </div>
+                <div class=" col-4">
+                    <input asp-for="PlaceOfResidence" class="form-control" />
+
+                </div>
+            </div>
+            <div class=" form-group row">
+                <div class=" col-8 offset-2 row">
+                    <div class="col">
+                       <input type ="submit" class="btn btn-info w-75" value="CREATE" />
+                    </div>
+                    <div class="col">
+                        <a  asp-action="index"> class="btn btn-danger w-75" RETURN </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

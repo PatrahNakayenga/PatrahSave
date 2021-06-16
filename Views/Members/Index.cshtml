@@ -1,0 +1,77 @@
+﻿@model IEnumerable<PatrahSave.Models.Member>
+<div class=" ="container" p-3">
+    <div class="row pt-4">
+      <div class = "col-6">
+             <h1 class=" text primary"> List of Members</h1>
+
+    </div>
+        <div class ="col-6" text-right">
+          <a asp-controller="Members" asp-action="Create" class="btn btn-primary"
+             >Create new Member
+
+          </a>
+        </div>
+</div>
+    <br/>
+
+    @if(Model.Count() > 0)
+            { 
+                <table class="table table-bordered table-striped" style="width :100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                MembersId
+                            </th>
+                            <th>
+                                MemberName
+                            </th>
+                            <th>
+                                Year of birth
+                            </th>
+                            <th>
+                                Age
+                            </th>
+                            <th>
+                                Place of Residence
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var Member in Model)
+                {
+                        <tr>
+
+                            <td width="30%">
+                                @Member.MemberId
+                        </td>
+                        <td width="30%">
+                            @Member.Name
+
+                        </td>
+                        <td width="30%">
+                            @Member.YearOfBirth
+                            .
+                        </td>
+                        <td class=" 30%">
+                            @Member.Age
+                        </td>
+                        <td class="30%">
+                            @Member.PlaceOfResidence
+                        </td>
+                        <td width="40%">
+                            <div class="col-6 text-right">
+                                <a asp-controller="Members" asp-action="Update" asp-route-Id"="@Member.MemberId" class="btn btn-mx-1">Update</a>
+                                <a asp-controller="Members" asp-action="Deletepost" asp-route-Id="@Member.MemberId" class="btn btn-mx-1">Delete</a>
+                            </div>
+                        </tr>
+                }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>
+                    No members added yet
+                </p>
+            }
+    </div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<PatrahSave.Models.Transaction>
+<div class=" ="container" p-3">
+    <div class="row pt-4">
+      <div class = "col-6">
+             <h1 class=" text primary"> List of Transactions </h1>
+
+    </div>
+        <div class ="col-6" text-right">
+          <a asp-controller="Transaction " asp-action="Create" class="btn btn-primary"
+             >Add new transaction
+
+          </a>
+        </div>
+</div>
+    <br/>
+
+    @if(Model.Count() > 0)
+            { 
+                <table class="table table-bordered table-striped" style="width :100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                TransactionId
+                            </th>
+                            <th>Transaction Name
+                            </th>
+                            <th>Transaction Amount
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var Transaction in Model)
+                {
+                    <tr>
+                        <td
+                            width="30%">@Transaction.Id
+                        </td>
+                        <td
+                            width="30%">@Transaction.transactionName
+                        </td>
+                        <td
+                            width="30%">@Transaction.Amount
+
+                        </td>
+
+                        <td width="40%"><div class="col-6 text-right">
+    <a asp-controller="Transaction" asp-action="@Transaction.Id" class="btn btn-mx-1">Update</a>
+    <a asp-controller="Transaction" asp-action="@Transaction.Id" class="btn btn-mx-1">Delete</a>
+</div>
+
+                        </td>
+                        
+                    </tr>
+                }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>
+                    No members added yet
+                </p>
+            }
+    </div>
